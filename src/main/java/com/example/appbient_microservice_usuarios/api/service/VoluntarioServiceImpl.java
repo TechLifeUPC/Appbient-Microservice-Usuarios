@@ -3,6 +3,7 @@ package com.example.appbient_microservice_usuarios.api.service;
 import com.example.appbient_microservice_usuarios.api.domain.model.entity.Voluntario;
 import com.example.appbient_microservice_usuarios.api.domain.persistence.VoluntarioRepository;
 import com.example.appbient_microservice_usuarios.api.domain.service.VoluntarioService;
+import com.example.appbient_microservice_usuarios.api.resource.Voluntario.CreateVoluntarioResource;
 import com.example.appbient_microservice_usuarios.shared.exception.ResourceNotFoundException;
 import com.example.appbient_microservice_usuarios.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;
@@ -41,13 +42,13 @@ public class VoluntarioServiceImpl implements VoluntarioService {
     }
 
     @Override
-    public Voluntario create(CreateVoluntarioResource  request) {
+    public Voluntario create(CreateVoluntarioResource request) {
         Voluntario voluntario = new Voluntario();
         voluntario.setUsername(request.getUsername());
         voluntario.setFirstname(request.getFirstname());
         voluntario.setLastname(request.getLastname());
         voluntario.setEmail(request.getEmail());
-        return ongRepository.save(voluntario);
+        return voluntarioRepository.save(voluntario);
     }
 
     @Override

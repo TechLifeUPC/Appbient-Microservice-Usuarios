@@ -33,7 +33,7 @@ public class VoluntarioController {
 
     @PostMapping
     public VoluntarioResource createVoluntario(@RequestBody CreateVoluntarioResource resource){
-        return mapper.toResource(voluntarioService.create(mapper.toModel(resource)));
+        return mapper.toResource(voluntarioService.create(resource));
     }
 
     @PutMapping("/{id}")

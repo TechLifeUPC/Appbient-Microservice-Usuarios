@@ -25,9 +25,8 @@ public class USA02Steps {
     }
 
 
-    @When("complete el formulario con Nombre {Nombre}, Descripcion {Descripcion} y Local {Locals}")
-    public void completeElFormularioConNombreNombreDescripcionDescripcionLocalLocals(String nombre, String descripcion, String locals) {
-        ong = new CreateOngResource(true, nombre, descripcion, locals);
+    @When("complete el formulario con name {name}, Descripcion {Descripcion} y email {email}")
+    public void completeElFormularioConnamenameDescripcionDescripcionLocalLocals(String name, String description, String email) {
 
     }
 

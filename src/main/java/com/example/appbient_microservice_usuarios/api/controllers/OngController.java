@@ -26,13 +26,13 @@ public class OngController {
     }
 
     @PostMapping
-    public OngResource createOng(@RequestBody CreateOngResource request) {
-        return mapper.toResource(ongService.create(mapper.toModel(request)));
+    public OngResource createOng(@RequestBody CreateOngResource resource) {
+        return mapper.toResource(ongService.create(resource));
     }
 
     @PutMapping("/{id}")
-    public OngResource updateOng(@PathVariable Long id, CreateOngResource request) {
-        return mapper.toResource(ongService.update(id, mapper.toModel(request)));
+    public OngResource updateOng(@PathVariable Long id, CreateOngResource resource) {
+        return mapper.toResource(ongService.update(id, mapper.toModel(resource)));
     }
 
     @DeleteMapping("/{id}")

@@ -3,6 +3,7 @@ package com.example.appbient_microservice_usuarios.api.service;
 import com.example.appbient_microservice_usuarios.api.domain.model.entity.Ong;
 import com.example.appbient_microservice_usuarios.api.domain.persistence.OngRepository;
 import com.example.appbient_microservice_usuarios.api.domain.service.OngService;
+import com.example.appbient_microservice_usuarios.api.resource.Ong.CreateOngResource;
 import com.example.appbient_microservice_usuarios.shared.exception.ResourceValidationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,9 @@ public class OngServiceImpl implements OngService {
     @Override
     public Ong create(CreateOngResource request) {
         Ong ong = new Ong();
-        ong.setEmail(request.getEmail());
         ong.setName(request.getEmail());
         ong.setDescription(request.getDescription());
+        ong.setEmail(request.getEmail());
         return ongRepository.save(ong);
     }
 
@@ -53,8 +54,8 @@ public class OngServiceImpl implements OngService {
         return ongRepository.findById(id).map(ong ->
             ongRepository.save(
                     ong.withName(request.getName())
-                    .withDescription(request.getDescription())
-                    .withEmail(request.getEmail()))
+                            .withDescription(request.getDescription())
+                            .withEmail(request.getEmail()))
         ).orElseThrow(() -> new IllegalArgumentException("ONG not found"));
     }
 

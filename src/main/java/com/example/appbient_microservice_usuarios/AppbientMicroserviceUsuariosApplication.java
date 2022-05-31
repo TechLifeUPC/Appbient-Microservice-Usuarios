@@ -1,4 +1,4 @@
-package com.example.appbient_microservice_usuarios
+package com.example.appbient_microservice_usuarios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
