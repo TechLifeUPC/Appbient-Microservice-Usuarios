@@ -30,4 +30,7 @@ public class Ong{
     @OneToMany(targetEntity = Local.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "ong_id", referencedColumnName = "id")
     private List<Local> local;
+    @OneToMany(targetEntity = PublicacionForo.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ong_id", referencedColumnName = "id")
+    private List<PublicacionForo> publicacionesForo;
 }

@@ -11,6 +11,10 @@ import lombok.*;
 public class UpdateVoluntarioResource {
     @NotNull
     @NotBlank
+    @Size(max = 50)
+    private String username;
+    @NotNull
+    @NotBlank
     @Size(max = 100)
     private String firstname;
     @NotNull

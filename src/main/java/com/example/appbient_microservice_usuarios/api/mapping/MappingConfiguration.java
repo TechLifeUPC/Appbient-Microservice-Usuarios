@@ -13,26 +13,6 @@ public class MappingConfiguration {
     }
 
     @Bean
-    public TopicoMapper topicoMapper() {
-        return new TopicoMapper();
-    }
-
-    @Bean
-    public PublicacionForoMapper publicacionForoMapper() {
-        return new PublicacionForoMapper();
-    }
-
-    @Bean
-    public RespuestaForoMapper respuestaForoMapper() {
-        return new RespuestaForoMapper();
-    }
-
-    @Bean
-    public ComentarioForoMapper comentarioForoMapper() {
-        return new ComentarioForoMapper();
-    }
-
-    @Bean
     public OngMapper ongMapper() {
         return new OngMapper();
     }

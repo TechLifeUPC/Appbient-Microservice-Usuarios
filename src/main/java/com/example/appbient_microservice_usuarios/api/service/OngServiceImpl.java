@@ -35,8 +35,12 @@ public class OngServiceImpl implements OngService {
     }
 
     @Override
-    public Ong create(Ong request) {
-        return ongRepository.save(request);
+    public Ong create(CreateOngResource request) {
+        Ong ong = new Ong();
+        ong.setEmail(request.getEmail());
+        ong.setName(request.getEmail());
+        ong.setDescription(request.getDescription());
+        return ongRepository.save(ong);
     }
 
     @Override
@@ -47,8 +51,10 @@ public class OngServiceImpl implements OngService {
             throw new ResourceValidationException(ENTITY, violations);
 
         return ongRepository.findById(id).map(ong ->
-            ongRepository.save(ong.withName(request.getName())
-                    .withDescription(request.getDescription()))
+            ongRepository.save(
+                    ong.withName(request.getName())
+                    .withDescription(request.getDescription())
+                    .withEmail(request.getEmail()))
         ).orElseThrow(() -> new IllegalArgumentException("ONG not found"));
     }
 

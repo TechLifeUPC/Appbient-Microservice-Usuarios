@@ -41,8 +41,13 @@ public class VoluntarioServiceImpl implements VoluntarioService {
     }
 
     @Override
-    public Voluntario create(Voluntario request) {
-        return voluntarioRepository.save(request);
+    public Voluntario create(CreateVoluntarioResource  request) {
+        Voluntario voluntario = new Voluntario();
+        voluntario.setUsername(request.getUsername());
+        voluntario.setFirstname(request.getFirstname());
+        voluntario.setLastname(request.getLastname());
+        voluntario.setEmail(request.getEmail());
+        return ongRepository.save(voluntario);
     }
 
     @Override
@@ -52,8 +57,10 @@ public class VoluntarioServiceImpl implements VoluntarioService {
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
         return voluntarioRepository.findById(id).map( vol ->
-                voluntarioRepository.save(vol.withFirstname(request.getFirstname())
+                voluntarioRepository.save(
+                        vol.withFirstname(request.getFirstname())
                         .withLastname(request.getLastname())
+                        .withUsername(request.getUsername())
                         .withEmail(request.getEmail()))
         ).orElseThrow(() -> new ResourceNotFoundException(ENTITY, request.getId()));
     }

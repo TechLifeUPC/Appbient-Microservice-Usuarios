@@ -34,8 +34,5 @@ public class LocalController {
         return mapper.toResource(localService.update(localId, mapper.toModel(request)));
     }
 
-    @DeleteMapping("/{localId}")
-    public void deleteLocal(@PathVariable Long localId) {
-        localService.delete(localId);
-    }
+
 }

@@ -9,5 +9,4 @@ public interface LocalService {
     List<Local> getByOngId(Long ongId);
     Local create(Long ongId,Local request);
     Local update(Long id, Local request);
-    ResponseEntity<?> delete(Long Localid);
 }

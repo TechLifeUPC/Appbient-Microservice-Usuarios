@@ -49,12 +49,6 @@ public class LocalServiceImpl implements LocalService {
                 .orElseThrow(() -> new ResourceValidationException("Local not found"));
     }
 
-    @Override
-    public ResponseEntity<?> delete(Long Localid) {
-        return localRepository.findById(Localid)
-                .map(local -> {
-                    localRepository.delete(local);
-                    return ResponseEntity.ok().build();
-                }).orElseThrow(() -> new ResourceValidationException("Local not found"));
-    }
+
+
 }

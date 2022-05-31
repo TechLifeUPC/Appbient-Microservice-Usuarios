@@ -19,4 +19,8 @@ public class CreateOngResource {
     @NotBlank
     @Size(max = 100)
     private String description;
+    @NotNull
+    @NotBlank
+    @Size(max = 100)
+    private String email;
 }
